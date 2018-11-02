@@ -1,0 +1,330 @@
+<html lang="en">
+<head>
+
+  <style type="text/css">
+    body{
+  margin:0;
+  padding:0;
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  background: #f7f5f0;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.button {
+    background-color: #61C0BF; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 350px;
+}
+
+#display a{
+font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #0046d5;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 700;
+  -webkit-box-shadow: 0px 4px 15px -5px #0046d5;
+          box-shadow: 0px 4px 15px -5px #0046d5;
+}
+.nav{
+  height: 55px;
+  background-color: #61C0BF;
+}
+
+.nav-item{
+  opacity: .7;
+  transition:opacity .4s;
+  color: #fff;
+} 
+
+.nav-item:hover{
+  opacity: 1;
+}
+
+.main-nav{
+  padding:0;
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.title{
+  font-family: 'Lobster Two', cursive;
+  letter-spacing: 2px;
+  margin-right: auto;
+  font-size: 1.4em;
+}
+.title a{
+
+  font-family: 'Lobster Two', cursive;
+  letter-spacing: 2px;
+  margin-right: auto;
+  font-size: 1.4em;
+
+}
+.main-nav a{
+  text-decoration: none;
+   list-style: none;
+  font-size: 1.1em;
+  padding: 14px 5px;
+  margin-left:.35em;
+  color: #fff;
+}
+
+.main-nav li{
+  list-style: none;
+  font-size: 1.1em;
+  padding: 14px 5px;
+  margin-left:.35em;
+  color: #fff;
+}
+
+/*-----Header-----*/
+
+header{
+  height: 460px;
+  padding-top: 3em;
+  background-image:url("https://linkedinbackground.com/download/xCity-Blur.jpg.pagespeed.ic.rgjI68wSzC.webp");
+  background-size: cover;
+  text-align: center;
+}
+
+.dp{
+  margin-top: 6em;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 1em;
+  transition: transform .5s;  
+}
+
+.dp:hover{
+  transform: scale(1.15) rotate(4deg);
+}
+
+.name{
+  width: 280px;
+  background-color:#D8D4D2;
+}
+
+.place{
+  width: 140px;
+  background-color:#61C0BF;
+  color: #fff;
+  margin-top: 1em;
+}
+
+.tag{
+  border-radius: 4px;
+  margin: .25em auto;
+  padding: 10px 20px;
+}
+
+.container{
+  padding-top: 2.5em;
+}
+
+.section{
+  margin: 2.5em 2em;
+  border-radius: 1%;
+  padding: 1.5em 1.45em;
+  background-color: #fff;
+  transition: box-shadow .6s;
+}
+
+.section:hover{
+  box-shadow: 0 20px 20px -5px rgba(0,0,0,.4);
+}
+
+.section h2{
+  font-size: 2em;
+}
+
+.section p{
+  line-height: 30px;
+}
+
+.section li{
+  list-style: none;
+  display: inline-block;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 1.2em;
+}
+
+.section li:nth-child(odd){
+  background-color: #A92159; 
+}
+
+.section li:nth-child(even){
+  background-color: #979797;
+}
+
+footer{
+  height: 130px;
+  text-align: center;
+}
+
+footer li{
+  list-style: none;
+  display: inline-block;
+}
+
+.social{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  opacity: .4;
+  transition: all .5s;
+  margin-top: 1em ;
+  margin-right: 1em;
+}
+
+a.social:hover {
+  opacity: 1;
+}
+
+footer p{
+  font-size: .8em;
+}
+
+/*@media(min-width:768px)*/
+
+@media(min-width: 768px){
+
+
+  header{
+    height: 560px;
+  }
+
+  .main-nav li{
+    margin-left: 1em;
+  }
+
+  .dp{
+    width: 230px;
+    height: 230px;
+    margin-bottom: 1em;
+  }
+
+  .name{
+    width: 320px;
+    font-size: 2.2em;
+  }
+
+  .place{
+    font-size: 1.25em;
+  }
+
+  .section h2{
+    font-size: 2.25em;
+  }
+
+  .section li{
+    font-size: 1.25em;
+  }
+
+  .container{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  footer p{
+    font-size: 1em;
+  }
+}
+
+@media(min-width: 992px){
+
+  .container{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+  </style>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="Portfolio.css">
+</head>
+<body id="home">
+  <div class="nav">
+    <ul class="main-nav">
+      <li class="title"><a href="/">Happy Paws</a></li>
+      </ul>
+  </div>
+  <header>
+      <img src={{url_for('static', filename='owners/'+data[5]) }} alt="Profile_Pic" class="dp">
+      <h1 class="tag name">Hello, I'm <span style="font-family:Lobster Two ; letter-spacing: 1px">{{data[1]}}</span>.</h1>
+      <p class="tag place">{{data[2]}}</p>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="section">
+        <h1>Description</h1>
+        <br>
+        <p>{{data[6]}}</p>
+        <p>
+        </div>
+
+            <div class="section">
+        <h1>Address</h1>
+        <br>
+        <p>{{data[3]}}</p>
+      </div>
+      <div class="section">
+        <h1>phone no</h1>
+        <p>{{data[4]}}</p>
+      </div>
+
+      <div class="section">
+        <h1>Availablity</h1>
+        <p>{{data[9]}}</p>
+      
+      </div>
+
+<div class="section">
+        <h1>Charges</h1>
+        <p>{{data[11]}}</p>
+      
+      </div>
+      
+    </div>
+
+    <a href="/mypets">
+      <button class="button">See My Pets</button>
+    </a>
+  <a href="/editProfile"><button class="button">Update your profile</button></a>
+  <a href="/AddaPet">
+    <button class="button">Add a Pet</button>
+  </a>
+  
+
+  </main>
+  <footer id="contact">
+
+  </footer>
+</body>
+</html>

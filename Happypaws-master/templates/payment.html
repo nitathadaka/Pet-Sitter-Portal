@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Happy Paws</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          function disableBack() { window.history.forward() }
+
+          window.onload = disableBack();
+          window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+      });
+  </script>
+<style>
+.navbar {
+      margin-bottom: 0;
+      background-color:#61C0BF;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: teal !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+
+  input[type=text],select, textarea {
+      width: 30%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+  }
+
+  input[type=password],select, textarea {
+      width: 30%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+  }
+
+  input[type=submit] {
+      background-color: #61C0BF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+  }
+
+
+</style>
+
+<body>
+<center><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Paytm_logo.png" style="width:240px; height:100px; margin-top:10vh"></center>
+  <br><center> <form name="submit" method="post" action="">
+  <h1> Total Amount:{{totaldue}}</h1>
+    <br>
+    <input type="submit" value="Pay" name="Pay">
+  </form>
+  </center>
+
+
+</html>

@@ -1,0 +1,70 @@
+
+mysql> create database happypaws
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use happypaws
+Database changed
+mysql> create table logins(uid int(5) auto_increment primary key,umail varchar(20),password varchar(20));
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> desc logins;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| uid      | int(5)      | NO   | PRI | NULL    | auto_increment |
+| umail    | varchar(20) | YES  |     | NULL    |                |
+| password | varchar(20) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> create table pets(pid int(5) auto_increment primary key,pname varchar(20),category varchar(10),breed varchar(20),age int,descrip varchar(45));
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> desc pets;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| pid      | int(5)      | NO   | PRI | NULL    | auto_increment |
+| pname    | varchar(20) | YES  |     | NULL    |                |
+| category | varchar(10) | YES  |     | NULL    |                |
+| breed    | varchar(20) | YES  |     | NULL    |                |
+| age      | int(11)     | YES  |     | NULL    |                |
+| descrip  | varchar(45) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> alter table pets add column image varchar(20);
+Query OK, 0 rows affected (0.51 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc pets;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| pid      | int(5)      | NO   | PRI | NULL    | auto_increment |
+| pname    | varchar(20) | YES  |     | NULL    |                |
+| category | varchar(10) | YES  |     | NULL    |                |
+| breed    | varchar(20) | YES  |     | NULL    |                |
+| age      | int(11)     | YES  |     | NULL    |                |
+| descrip  | varchar(45) | YES  |     | NULL    |                |
+| image    | varchar(20) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> create table sitters(sid int(5) auto_increment primary key, sname varchar(20),Location varchar(10),Addr varchar(30),phno varchar(11),image varchar(10));
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> desc sitters;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| sid      | int(5)      | NO   | PRI | NULL    | auto_increment |
+| sname    | varchar(20) | YES  |     | NULL    |                |
+| Location | varchar(10) | YES  |     | NULL    |                |
+| Addr     | varchar(30) | YES  |     | NULL    |                |
+| phno     | varchar(11) | YES  |     | NULL    |                |
+| image    | varchar(10) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+

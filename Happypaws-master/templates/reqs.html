@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Paws</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/map-marker.css"/>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+
+  <style>
+  .navbar {
+        margin-bottom: 0;
+        background-color:#61C0BF;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+        color: teal !important;
+        background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+    }
+
+    #sitterdetails{
+      padding:20px;
+      background-color: #61C0BF;
+      border-radius: 5px;
+    }
+
+    .tabcontent{
+      background-color: white;
+      padding:25px;
+      border-radius: 5px;
+    }
+
+
+    body {
+        font-family: Arial;
+        color: white;
+    }
+
+    .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .left {
+        left: 0;
+        background-image:url("https://i.pinimg.com/originals/fb/e2/eb/fbe2eb92ab1222f7ad4791100238f1a5.jpg");
+        background-size:cover;
+        background-repeat:no-repeat;
+
+    }
+
+    .right {
+        right: 0;
+        background-color: #99CED4;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    input[type=text],input[type=password],select, textarea {
+      width: 20vw;
+      padding: 20px;
+      border:0;
+      border: 2px solid #062F4F;
+      border-radius: 15px;
+      font-family: Lato;
+      color:#062F4F;
+
+    }
+
+    .btn {
+    width: 5vw;
+    font-size:17px;
+    padding: 12px;
+    border: 2px solid #062F4F;
+    border-radius: 15px;
+    color:#062F4F;
+    }
+
+    header
+    {
+    		text-align: center;
+    		color: #062F4F;
+    		font-family: Lato;
+    		font-size: 42px;
+    }
+
+    h2
+    {
+        position: relative;
+        top:-170px;
+    		color: white;
+    		font-family: Lato;
+    		font-size: 60px;
+    }
+
+    .navbar {
+          margin-bottom: 0;
+          background-color:#61C0BF;
+          z-index: 9999;
+          border: 0;
+          font-size: 12px !important;
+          line-height: 1.42857143 !important;
+          letter-spacing: 4px;
+          border-radius: 0;
+      }
+      .navbar li a, .navbar .navbar-brand {
+          color: #fff !important;
+      }
+      .navbar-nav li a:hover, .navbar-nav li.active a {
+          color: teal !important;
+          background-color: #fff !important;
+      }
+      .navbar-default .navbar-toggle {
+          border-color: transparent;
+          color: #fff !important;
+      }
+      i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+    </style>
+</head>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Happy Paws</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/howitworks">HOW IT WORKS</a></li>
+        <li><a href="/BecomeaHost">BECOME A SITTER</a></li>
+
+        {% if loggedIn %}
+
+              <div class="dropdown" class="navbar-header" class="navbar-brand">
+                   <button class="dropbtn" class="navbar-nav" ">Hello, <br>{{username}}</button>
+                <div class="dropdown-content">
+             <a href="/user">Your profile</a>
+             <a href="/transactions">Your history</a>
+                 <hr>
+            <a href="/logout">Log Out</a>
+          </div>
+          </div>
+        {% else %}
+            <li><a href="login"> LOGIN </a></li>
+
+        {% endif %}
+
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+	<div id="about" class="container-fluid">
+	<h2>About</h2>
+	<nav class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+		<a class="nav-item nav-link active" id="nav-philosophy-tab" data-toggle="tab" href="#nav-philosophy" role="tab" aria-controls="nav-philosophy" aria-selected="true">Sent Requests</a>
+		<a class="nav-item nav-link" id="nav-team-tab" data-toggle="tab" href="#nav-team" role="tab" aria-controls="nav-team" aria-selected="false">Recieved Requests</a>
+    	<a class="nav-item nav-link" id="nav-philosophy_2-tab" data-toggle="tab" href="#nav-philosophy_2" role="tab" aria-controls="nav-philosophy" aria-selected="false">Pending requests</a>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="nav-philosophy" role="tabpanel" aria-labelledby="nav-philosophy-tab">
+			<div class="jumbotron">
+				<div class="container">
+
+<div id="sent" class="tabcontent"> Requests Sent <br>
+
+	{% for transactions in datareqs %}
+
+	<div id="sitterdetails" >
+	<table id="descriptionTable">
+		<tr>
+			<!-- <img src = {{ url_for('static',filename = 'pets/'+ transactions[13]) }} />
+			 -->
+
+
+			 <a href="{{ url_for('sitter',username=transactions[8]) }}">Name:{{transactions[8]}}</a>
+			<td>
+        <a href="{{ url_for('sitter',username=transactions[1]) }}">Sitter:{{transactions[1]}}</a>
+			</td>
+
+			<td>
+				<a href="{{ url_for('pett',petid=transactions[2]) }}">Pet:{{transactions[2]}}</a>
+			</td>
+
+			<td>
+				Start:{{transactions[5]}}
+			</td>
+
+			<td>
+				End Date:{{transactions[6]}}
+			</td>
+
+			<td>
+				Status : {{transactions[3]}}
+			</td>
+				</tr>
+
+
+
+	</table>
+	</div>
+	<br>
+	<hr>
+	<br>
+	{% endfor %}
+</div>
+
+				 </div>
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="nav-team" role="tabpanel" aria-labelledby="nav-team-tab">
+			<div class="jumbotron">
+				<div class="container">
+
+
+<div id="sent" class="tabcontent"> Requests Recieved <br>
+
+	{% for transactionss in datasent %}
+
+
+	<div id="sitterdetails">
+	<table id="descriptionTable">
+		<tr>
+
+			<a href="{{ url_for('sitter',username=transactionss[8]) }}">Name:{{transactionss[8]}}</a>
+
+			<td>
+				Owner:{{transactionss[0]}}
+			</td>
+
+			<td>
+				Sitter:{{transactionss[1]}}
+			</td>
+
+			<td>
+				<a href="{{ url_for('pett',petid=transactionss[2]) }}">Pet:{{transactionss[2]}}</a>
+			</td>
+
+			<td>
+				Start:{{transactionss[5]}}
+			</td>
+
+			<td>sql
+				End Date:{{transactionss[6]}}
+			</td>
+<form name="submit" method="post" action="{{ url_for('mytrans',tid = transactionss[4]) }}">
+			<td>
+				{% if transactionss[3] == 'request' %}
+					Status : Choose
+					Accept <input type="radio" name="status" value="Accepted" >
+					Reject:	<input type="radio" name="status" value="Rejected">
+					<input type="submit"  class="btn btn-default" value="submit">
+				{% else %}
+					Status : {{transactionss[3]}}
+				{% endif %}
+			</td>
+			<br>
+
+</form>
+
+		</tr>
+	</table>
+	</div>
+	<br>
+	<hr>
+	<br>
+	{% endfor %}
+</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="tab-pane fade" id="nav-philosophy_2" role="tabpanel" aria-labelledby="nav-philosophy-tab_2">
+      <div class="jumbotron">
+        <div class="container">
+
+  <div id="sent" class="tabcontent"> HI <br>
+
+  {% for transactions in dataacc %}
+
+  <div id="sitterdetails" >
+  <table id="descriptionTable">
+    <tr>
+      <!-- <img src = {{ url_for('static',filename = 'pets/'+ transactions[13]) }} />
+       -->
+
+
+       <a href="{{ url_for('sitter',username=transactions[8]) }}">Name:{{transactions[8]}}</a>
+
+
+       <td>
+        Owner:{{transactions[0]}}
+      </td>
+
+      <td>
+        Sitter:{{transactions[1]}}
+      </td>
+
+      <td>
+        <a href="{{ url_for('pett',petid=transactions[2]) }}">Pet:{{transactions[2]}}</a>
+      </td>
+
+      <td>
+        Start:<span style="font-size:25px">{{transactions[5]}} <i class="arrow right"></i> {{transactions[6]}} </span>
+      </td>
+
+      <td>
+        Total Due: <span style="font-weight:bold"> {{transactions[7]}}</span>
+      </td>
+
+      <td>
+        Status : {{transactions[3]}}
+        <a href="{{ url_for('payment',transid=transactions[4])}}"> <input class="btn btn-default" type="submit" value="Payment"> </a>
+        <a href="{{ url_for('reject',transid=transactions[4])}}"> <input class="btn btn-default" type="submit" value="Reject"> </a>
+      </td>
+        </tr>
+
+
+
+  </table>
+  </div>
+  <br>
+  <hr>
+  <br>
+  {% endfor %}
+  </div>
+
+         </div>
+      </div>
+
+<hr>
+</body>
+</html>

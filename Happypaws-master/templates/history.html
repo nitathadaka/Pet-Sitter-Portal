@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My History</title>
+</head>
+<body>
+	<div id="title">
+		<h1>My Past Transactions</h1>
+	</div>
+<div id="history">
+
+	<% for history in transaction %>
+		<div id="transactions">
+			<table id=description>
+				<td>
+					Owner:{{history[0]}}
+				</td>
+				<td>
+					Pet Name:{{history[1]}}
+				</td>
+
+				<td>
+					Charges:{{history[2]}}
+				</td>
+
+				<td>
+					From:{{history[3]}} 	To:{{history[4]}}
+				</td>
+
+				
+			</table>
+		</div>
+</div>
+
+</body>
+</html>

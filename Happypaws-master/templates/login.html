@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+<script type="text/javascript">
+function validateForm()
+{
+    var x = document.forms["login"]["name"].value;
+    var password = document.forms["login"]["password"].value;
+
+    if (x == "")
+    {
+        alert("Name must be filled out");
+  x.focus();
+        return false;
+    }
+
+      if(password == "")
+    {
+  alert("Password must be filled out");
+  password.focus();
+  return false;
+    }
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body {
+    font-family: Arial;
+    color: white;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-image:url("https://i.pinimg.com/originals/fb/e2/eb/fbe2eb92ab1222f7ad4791100238f1a5.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+
+}
+
+.right {
+    right: 0;
+    background-color: #99CED4;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+input[type=text],input[type=password],select, textarea {
+  width: 20vw;
+  padding: 20px;
+  border:0;
+  border: 2px solid #062F4F;
+  border-radius: 15px;
+  font-family: Lato;
+  color:#062F4F;
+
+}
+
+.btn {
+width: 5vw;
+font-size:17px;
+padding: 12px;
+border: 2px solid #062F4F;
+border-radius: 15px;
+color:#062F4F;
+}
+
+header
+{
+		text-align: center;
+		color: #062F4F;
+		font-family: Lato;
+		font-size: 42px;
+}
+
+h2
+{
+    position: relative;
+    top:-170px;
+		color: white;
+		font-family: Lato;
+		font-size: 60px;
+}
+
+.navbar {
+      margin-bottom: 0;
+      background-color:#61C0BF;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: teal !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Happy Paws</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/howitworks">HOW IT WORKS</a></li>
+          <li><a href="/BecomeaHost">BECOME A SITTER</a></li>
+          <!-- <li><a data-toggle="modal" data-target="#myModal"> LOGIN </a></li>
+           --><li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="split left">
+  <div class="centered">
+
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered" style="color:#062F4F">
+
+    <form name="login" action="" class="form-inline" onsubmit="return validateForm()"  method="post">
+<header> LOGIN </header> <br>
+  <br>
+  Username:  <input type="text" class="form-control" name="username" value="{{request.form.username}}" placeholder = "Username" > <br><br>
+  Password: 	<input type="password" class="form-control" placeholder = "Password" name="password" value="{{request.form.password}}"> <br><br>
+  <br>
+  <input class="btn btn-default" type="submit" value="Login">
+  <br>
+  <a href="/register">New User? Sign up to get started</a>
+</br>
+
+<p>{{ error }}</p>
+
+</form>
+  </div>
+</div>
+
+<footer class="container-fluid text-center" style="background-color:#61C0BF; padding:30px">
+  <p style="color:white; font-family:Lato"> Copyrights 2018. All rights reserved </p>
+</footer>
+
+</body>
+
+</html>

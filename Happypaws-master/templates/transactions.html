@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>My transactions</title>
+	<body>
+	
+
+
+
+<div id="sent" class="tabcontent"> Requests Sent
+
+	{% for transactions in data %}
+	
+	<div id="sitterdetails">
+	<table id="descriptionTable">
+		<tr>
+			<td>
+				Owner:{{transactions[0]}}
+			</td>
+
+			<td>
+				Sitter:{{transactions[1]}}
+			</td>
+
+			<td>
+				Pet:{{transactions[2]}}
+			</td>
+
+			<td>
+				Start:{{transactions[5]}}
+			</td>
+
+			<td>
+				End Date:{{transactions[6]}}
+			</td>
+
+			<td>
+				Status : {{transactions[3]}}
+			</td>
+		</tr>
+	</table>
+	</div>
+	<br>
+	<hr>
+	<br>
+	{% endfor %}
+</div>
+
+
+<div id="recieved" class="tabcontent"> Requests Recieved</div>
+
+<button class="tablink" onclick="openTab('sent')" id="defaultOpen">Requests Sent</button>
+
+<button class="tablink" onclick="openTab('recieved')" >Requests Recieved</button>
+
+
+<script type="text/javascript">
+	function openTab(reqtype) {
+		tabcontent = document.getElementByClassName('tabcontent');
+		
+	}
+</script>
+
+</body>
+</head>
+</html>

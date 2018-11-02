@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> your pets</title>
+<style>
+<style>
+#logo {
+	height: 40px;
+	width: 50px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	float: left;
+}
+
+#title {
+	background-color: #61C0BF;
+	display: inline-block;
+	width: 100%;
+}
+
+
+
+#display {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+#petimage {
+	height: 250px;
+	width: 200px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: inline-block;
+	float: left;
+}
+
+#petdetails {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: inline-block;
+	font-size: 19px;
+}
+
+#descriptionTable  {
+	height: 250px;
+	width: 150px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="display">
+
+
+	<h2>Your pets:</h2>
+	{% for petData in data %}
+	
+                 <div>
+		
+					<img src={{ url_for('static', filename='pets/' + petData[6]) }} id="petimage" />
+		</div>
+	<div id="petdetails">
+	<table id="descriptionTable">
+		<tr id="pname">
+				<tr>
+					<td>
+					Name: {{petData[1]}}
+
+				</td>
+				</tr>				
+			<tr>
+			<td>
+				Breed: {{petData[3]}}
+			</td>
+			</tr>
+			<tr>
+			<td>
+				Age: {{petData[4]}}
+			</td>
+		</tr>
+			<tr>
+			<td>
+				Description : {{petData[5]}}
+			</td>
+		</tr>
+		
+	
+	</table>
+	</div>
+	<br>
+	<hr>
+	<br>
+	{% endfor %}
+</div>
+</body>
+</html>

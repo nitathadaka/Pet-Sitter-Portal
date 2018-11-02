@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Happy Paws</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+
+  <style>
+  .jumbotron {
+      background-image: url("https://static.tumblr.com/0007b8d0ad5f0e3b151887d64aafa8e7/qdt4dpk/KT8o25hpk/tumblr_static_tumblr_static_3xhmuovo3jeok0wgw0gw844s8_640.jpg");
+      min-height:647px;
+      width:100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  #become{
+    background-image: url("http://www.twitrcovers.com/wp-content/uploads/2014/09/Sheep-Dog-l.jpg");
+    min-height: 500px;
+  }
+
+  .content {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 160px;
+    overflow: hidden;
+    font-family: 'Lato', sans-serif;
+    font-size: 35px;
+    line-height: 40px;
+    color: #ecf0f1;
+  }
+  .content__container {
+    font-weight: 600;
+    overflow: hidden;
+    height: 40px;
+    padding: 0 40px;
+  }
+  .content__container:before {
+    content: '[';
+    left: 0;
+  }
+  .content__container:after {
+    content: ']';
+    position: absolute;
+    right: 0;
+  }
+  .content__container:after, .content__container:before {
+    position: absolute;
+    top: 0;
+    color: #16a085;
+    font-size: 42px;
+    line-height: 40px;
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: opacity;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  .content__container__text {
+    display: inline;
+    float: left;
+    margin: 0;
+  }
+  .content__container__list {
+    margin-top: 0;
+    padding-left: 335px;
+    text-align: left;
+    list-style: none;
+    -webkit-animation-name: change;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: change;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+  }
+  .content__container__list__item {
+    line-height: 40px;
+    margin: 0;
+  }
+
+  @-webkit-keyframes opacity {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes change {
+    0%, 12.66%, 100% {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    16.66%, 29.32% {
+      -webkit-transform: translate3d(0, -25%, 0);
+              transform: translate3d(0, -25%, 0);
+    }
+    33.32%,45.98% {
+      -webkit-transform: translate3d(0, -50%, 0);
+              transform: translate3d(0, -50%, 0);
+    }
+    49.98%,62.64% {
+      -webkit-transform: translate3d(0, -75%, 0);
+              transform: translate3d(0, -75%, 0);
+    }
+    66.64%,79.3% {
+      -webkit-transform: translate3d(0, -50%, 0);
+              transform: translate3d(0, -50%, 0);
+    }
+    83.3%,95.96% {
+      -webkit-transform: translate3d(0, -25%, 0);
+              transform: translate3d(0, -25%, 0);
+    }
+  }
+  @keyframes opacity {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes change {
+    0%, 12.66%, 100% {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    16.66%, 29.32% {
+      -webkit-transform: translate3d(0, -25%, 0);
+              transform: translate3d(0, -25%, 0);
+    }
+    33.32%,45.98% {
+      -webkit-transform: translate3d(0, -50%, 0);
+              transform: translate3d(0, -50%, 0);
+    }
+    49.98%,62.64% {
+      -webkit-transform: translate3d(0, -75%, 0);
+              transform: translate3d(0, -75%, 0);
+    }
+    66.64%,79.3% {
+      -webkit-transform: translate3d(0, -50%, 0);
+              transform: translate3d(0, -50%, 0);
+    }
+    83.3%,95.96% {
+      -webkit-transform: translate3d(0, -25%, 0);
+              transform: translate3d(0, -25%, 0);
+    }
+  }
+
+  .container {
+      position: relative;
+      text-align: center;
+      color: white;
+  }
+
+  .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      font-family: georgia;
+      font-size: 30px;
+      color:turquoise;
+      font-weight: bold;
+  }
+
+  .button {
+      background-color: transparent;
+      border: 1px solid white;
+      opacity: 0.7;
+      color:turquoise;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      margin-bottom: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      position:absolute;
+      transition: .5s ease;
+      left: 230px;
+      top: 280px;
+  }
+
+  button:hover {
+      background-color:	turquoise;
+      opacity: 0.5;
+      color:teal;
+    }
+
+
+
+    .container-fluid {
+      padding: 60px 50px;
+  }
+
+  .navbar {
+        margin-bottom: 0;
+        background-color:#61C0BF;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+        color: teal !important;
+        background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+    }
+
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: teal;
+      opacity:0.5;
+      color: white;
+      cursor: pointer;
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    #myBtn:hover {
+      background-color: turquoise;
+    }
+
+    #ip{
+    background: transparent;
+    border: 1px solid #61C0BF;
+    border-radius:0px;
+  }
+
+  #select1{
+    border: 1px solid #61C0BF;
+    padding:20px;
+    font-family:Lato;
+  }
+
+#how{
+  font-size:20px;
+  font-family: Lato;
+  color:#008F95;
+}
+
+  .modal-backdrop.in {
+    opacity: 0.9;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: :#008F95;
+ }
+ .carousel-indicators li {
+     border-color: #008F95;
+ }
+ .carousel-indicators li.active {
+     background-color: :#008F95;
+ }
+ .item h4 {
+     font-size: 19px;
+     line-height: 1.375em;
+     font-weight: 400;
+     font-style: italic;
+     margin: 70px 0;
+ }
+ .item span {
+     font-style: normal;
+ }
+
+
+ select:required:invalid {
+   color: gray;
+ }
+ option[value=""][disabled] {
+   display: none;
+ }
+ option {
+   color: black;
+ }
+
+  </style>
+</head>
+
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+       // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+          });
+        } // End if
+      });
+    })
+    </script>
+
+<script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+
+
+  <div class="container-fluid" >
+  <form name="submit" method="post">
+    <div class="form-group">
+     
+              <div class="input-group date" id="datetimepicker1" style="width:20vw;margin-left:50px">
+                    <input type='text' class="form-control" name="start" placeholder="Start Date" style="border: 1px solid #61C0BF; height:6vh" />
+                        <span class="input-group-addon" style="background-color:transparent; border: 1px solid #61C0BF">
+                            <span class="glyphicon glyphicon-calendar" style="color:#61C0BF"></span>
+                        </span>
+              </div>
+              <script type="text/javascript">
+                    $(function () {
+                            $('#datetimepicker1').datetimepicker();
+                            minDate:new Date()
+                    });
+              </script>
+       
+        
+             <div class="input-group date" id="datetimepicker2" style=" width:20vw;margin-left:50px" >
+                   <input type='text' class="form-control" name="end" placeholder="End Date" style="border: 1px solid #61C0BF; height:6vh" />
+                       <span class="input-group-addon" style="background-color:transparent; border: 1px solid #61C0BF">
+                           <span class="glyphicon glyphicon-calendar" style="color:#61C0BF"></span>
+                       </span>
+             </div>
+             <script type="text/javascript">
+                   $(function () {
+                           $('#datetimepicker2').datetimepicker();
+                   });
+             </script>
+     
+    <input type="submit" class="btn btn-default" value="submit" style="margin-left:100px; padding: 13px; border-radius:20px; font-size:17px; font-family:georgia; background-color:#61C0BF; color:white ">
+   </div>
+ 
+ </form>
+</div>
+
+
+
+</body>
+</html>

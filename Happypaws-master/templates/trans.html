@@ -1,0 +1,124 @@
+
+<html>
+<body>
+
+	<script type="text/javascript">
+		
+		//gallery
+
+function seeMoreFunction(){
+	var show = document.getElementById("seeMoreDiv");
+		if(document.getElementById("seeMoreDiv").style.visibility==="hidden"){
+		show.style.visibility="visible";
+		document.getElementById("lowerDiv").style.marginTop="0px";
+	}
+	else if(document.getElementById("seeMoreDiv").style.visibility==="visible"){
+		//test if invisible. If it is, make it visible
+		show.style.visibility="hidden";
+		//show.style.marginTop = "-200px";  
+		document.getElementById("lowerDiv").style.marginTop="-400px";
+	}
+}
+
+//eventCalendar
+		function dateFunction(){
+			//we are getting the date from the textbox
+			var theDate=document.getElementById("datePicker").value;
+			
+			//the value from the textbox is a date. it needs to be changed into string to be converted
+			//the line below cast(convert) date to string
+			var theConvertedDate=theDate.toString();
+			
+			
+			//yyyy-mm-dd
+			//this array will store the dates on which events were held
+			var eventDatesArray=["2017-07-10","2017-09-15","2017-07-29","2017-08-15"];
+			
+			//eventDatesArray[2]
+			//this one will store the description of the event
+			
+			var eventDescriptionArray=["her birthday","his birthday","our anniversary","our first date"];
+			
+			//this i is a counter, used in the loop
+			var i;
+			
+			var theResultEvent="no event found";
+			
+			//this loop is used for searching matching dates and corresponding event
+			for(i=0;i<eventDatesArray.length;i++){
+				if(theDate==eventDatesArray[i]){
+					//alert(eventDescriptionArray[i]);
+					theResultEvent=eventDescriptionArray[i];
+					//document.getElementById("eventDescriptionDiv").innerHTML=eventDescriptionArray[i];
+				}
+				else{
+					//whenever the comparison returns false, nothing happens,
+					//the default value 'no event found' is valid
+				}
+			}
+			
+			//once the searching is done, it's time to write the value in the <p>
+			document.getElementById("eventDescriptionDiv").innerHTML=theResultEvent;
+			
+		}
+
+
+	</script>>
+	<h2>About</h2>
+	<nav class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+		<a class="nav-item nav-link active" id="nav-philosophy-tab" data-toggle="tab" href="#nav-philosophy" role="tab" aria-controls="nav-philosophy" aria-selected="true">Our Philosophy</a>
+		<a class="nav-item nav-link" id="nav-team-tab" data-toggle="tab" href="#nav-team" role="tab" aria-controls="nav-team" aria-selected="false">Our Team</a>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="nav-philosophy" role="tabpanel" aria-labelledby="nav-philosophy-tab">
+			<div class="jumbotron">
+				<div class="container">
+				  <div class="row">
+					<div class="col">
+					  <p>We are passionate about rehoming pets in need, and our work is made possible by the kind donations 
+					  of animal lovers who believe in our mission. Many of the animals in our care have never experienced life 
+					  in a loving, family home. Can you give one of our animals the happy future they deserve?</p>
+					</div>
+					<div class="col">
+						<div class='embed-container'>
+							<iframe src='https://www.youtube.com/embed/D_Rx4qZ8QRc' frameborder='0' allowfullscreen></iframe>
+						</div>
+					</div>
+				  </div>
+				 </div>
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="nav-team" role="tabpanel" aria-labelledby="nav-team-tab">
+			<div class="jumbotron">
+				<div class="container">
+				 <div class="row">
+				   <div class="col-3">
+				   <img class="team-img" src="images/team1.jpg" alt="Team 1">
+					 <h6>Veterinarian</h6>
+					 <p>Test</p>
+				   </div>
+				   <div class="col-3">
+				   <img class="team-img" src="images/team2.jpg" alt="Team 2">
+					 <h6>Caretaker</h6>
+					 <p>Test</p>
+				   </div>
+				   <div class="col-3">
+				   <img class="team-img" src="images/team3.jpg" alt="Team 3">
+					 <h6>Specialist</h6>
+					 <p>Test</p>
+				   </div>
+				   <div class="col-3">
+				   <img class="team-img" src="images/team4.jpg" alt="Team 3">
+					 <h6>Veterinarian</h6>
+					 <p>Test</p>
+				   </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+<html>

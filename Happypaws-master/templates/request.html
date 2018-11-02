@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Happy Paws</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+
+  <style>
+
+  .container {
+      position: relative;
+      text-align: center;
+      color: white;
+  }
+
+  .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      font-family: georgia;
+      font-size: 30px;
+      color:turquoise;
+      font-weight: bold;
+  }
+
+  .button {
+      background-color: transparent;
+      border: 1px solid white;
+      opacity: 0.7;
+      color:turquoise;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      margin-bottom: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      position:absolute;
+      transition: .5s ease;
+      left: 230px;
+      top: 280px;
+  }
+
+  button:hover {
+      background-color:	turquoise;
+      opacity: 0.5;
+      color:teal;
+    }
+
+
+
+    .container-fluid {
+      padding: 60px 50px;
+  }
+
+  .navbar {
+        margin-bottom: 0;
+        background-color:#61C0BF;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+        color: teal !important;
+        background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+    }
+
+textarea{
+  border: 1px solid #61C0BF;
+  border-radius: 5px;
+
+}
+
+ .item h4 {
+     font-size: 19px;
+     line-height: 1.375em;
+     font-weight: 400;
+     font-style: italic;
+     margin: 70px 0;
+ }
+ .item span {
+     font-style: normal;
+ }
+
+
+ select:required:invalid {
+   color: gray;
+ }
+ option[value=""][disabled] {
+   display: none;
+ }
+ option {
+   color: black;
+ }
+
+  </style>
+</head>
+
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+  <div class="container-fluid" >
+  <form name="submit" method="post" value="submit">
+    <div class="form-group">
+
+            {% for petData in data %}
+    <div class="melon">
+                <div>
+
+          <img src={{ url_for('static', filename='pets/' + petData[6]) }} id="petimage" class="img-circle" width="204" height="204" />
+        </div>
+        <div id="petdetails">
+          <table id="descriptionTable">
+            <tr id="pname">
+
+                <td>
+                  Name: {{petData[1]}}
+                </td>
+
+                <td>
+                  Breed: {{petData[3]}}
+                </td>
+
+                <td>
+                  Age: {{petData[4]}}
+                </td>
+
+                <td>
+                  Description : {{petData[5]}}
+                </td>
+
+                <input type="radio" name="pet" value={{petData[0]}}>
+          </table>
+        </div>
+      <hr>
+    </div>
+  {% endfor %}
+
+<strong> {{error}}</strong>
+  <div class="row">
+    <div class="col-sm-4">Request Note:<br> <textarea name="reqtext" rows=5 cols="50" placeholder="Mention your time preference and other requests" value="{{request.form.request}}"></textarea><br></div>
+    <div class="col-sm-4">  <br><div class="input-group date" id="datetimepicker1" style="width:20vw;margin-left:50px">
+            <input type='text' class="form-control" name="start" placeholder="Start Date" style="border: 1px solid #61C0BF; height:6vh" />
+                <span class="input-group-addon" style="background-color:transparent; border: 1px solid #61C0BF">
+                    <span class="glyphicon glyphicon-calendar" style="color:#61C0BF"></span>
+                </span>
+      </div>
+      <script type="text/javascript">
+            $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                    minDate:new Date()
+            });
+      </script>
+</div>
+    <div class="col-sm-4"> <br><div class="input-group date" id="datetimepicker2" style=" width:20vw;margin-left:50px" >
+           <input type='text' class="form-control" name="end" placeholder="End Date" style="border: 1px solid #61C0BF; height:6vh" />
+               <span class="input-group-addon" style="background-color:transparent; border: 1px solid #61C0BF">
+                   <span class="glyphicon glyphicon-calendar" style="color:#61C0BF"></span>
+               </span>
+     </div>
+     <script type="text/javascript">
+           $(function () {
+                   $('#datetimepicker2').datetimepicker();
+           });
+     </script>
+</div>
+  </div>
+<br>
+  <center>
+    <input type="submit"  class="btn btn-default" value="Submit" style="padding: 13px; border-radius:20px; font-size:17px; font-family:georgia; background-color:#61C0BF; color:white ">
+</center>
+   </div>
+
+ </form>
+</div>
+
+
+
+</body>
+</html>
+
